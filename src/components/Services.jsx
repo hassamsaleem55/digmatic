@@ -57,7 +57,7 @@ function Services() {
                 <i
                   className={`${icon} font-40px dark-icon white-bg-icon circle-icon fade-icon`}
                 />
-                <h4 className="upper-case">Web Design</h4>
+                <h4 className="upper-case">{title}</h4>
                 <p>{desc}</p>
               </div>
             );
