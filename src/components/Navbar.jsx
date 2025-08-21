@@ -6,7 +6,7 @@ const navItems = [
   { id: "service", title: "Services" },
   { id: "team", title: "Team" },
   { id: "work", title: "Work" },
-  { id: "pricing", title: "Pricing" },
+  // { id: "pricing", title: "Pricing" },
   { id: "contact", title: "Contact Us" },
 ];
 
