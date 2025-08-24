@@ -1,5 +1,8 @@
 import Slider from "react-slick";
+import { config } from "../../utilities/config";
 
+const landingImagesPath = config.basePaths.landingAssets.images;
+const imagePath = landingImagesPath + "/team";
 const sliderSettings = {
   dots: true,
   infinite: true,
@@ -14,7 +17,7 @@ const arrTestimonials = [
     id: 1,
     name: "Hank Dano",
     designation: "Founder &amp; CEO of Arcon",
-    img: "assets/images/team/avatar-1.jpg",
+    img: `${imagePath}/avatar-1.jpg`,
     comment:
       "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
   },
@@ -22,7 +25,7 @@ const arrTestimonials = [
     id: 2,
     name: "Julia Banks",
     designation: "CEO of Arcon",
-    img: "assets/images/team/avatar-2.jpg",
+    img: `${imagePath}/avatar-2.jpg`,
     comment:
       "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
   },
@@ -30,7 +33,7 @@ const arrTestimonials = [
     id: 3,
     name: "Mark Smith",
     designation: "CEO of Arcon",
-    img: "assets/images/team/avatar-3.jpg",
+    img: `${imagePath}/avatar-3.jpg`,
     comment:
       "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
   },

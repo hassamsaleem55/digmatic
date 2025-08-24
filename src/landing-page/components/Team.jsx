@@ -1,7 +1,11 @@
+import { config } from "../../utilities/config";
+
+const landingImagesPath = config.basePaths.landingAssets.images;
+const imagePath = landingImagesPath + "/team";
 const teamItems = [
   {
     id: 1,
-    img: "assets/images/team/team-01.jpg",
+    img: `${imagePath}/team-01.jpg`,
     name: "David Marks",
     designation: "UI/UX Designer",
     socialLinks: [
@@ -12,7 +16,7 @@ const teamItems = [
   },
   {
     id: 2,
-    img: "assets/images/team/team-02.jpg",
+    img: `${imagePath}/team-02.jpg`,
     name: "Lynda Stone",
     designation: "Photographer",
     socialLinks: [
@@ -23,7 +27,7 @@ const teamItems = [
   },
   {
     id: 3,
-    img: "assets/images/team/team-03.jpg",
+    img: `${imagePath}/team-03.jpg`,
     name: "Karl Casey",
     designation: "Web Developer",
     socialLinks: [
@@ -34,7 +38,7 @@ const teamItems = [
   },
   {
     id: 4,
-    img: "assets/images/team/team-04.jpg",
+    img: `${imagePath}/team-04.jpg`,
     name: "Roland Buford",
     designation: "CEO/Founder",
     socialLinks: [

@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import { config } from "../../utilities/config";
+
+const landingImagesPath = config.basePaths.landingAssets.images;
 
 const slides = [
   {
     id: 1,
-    bg: "assets/images/slides/home-bg-26.jpg",
+    bg: `${landingImagesPath}/slides/home-bg-26.jpg`,
     title: "Everything is Design",
     heading: "Everything",
     subtitle: "Good design is obvious. Great design is transparent.",
@@ -22,7 +25,7 @@ const slides = [
   },
   {
     id: 2,
-    bg: "assets/images/slides/home-bg-27.jpg",
+    bg: `${landingImagesPath}/slides/home-bg-27.jpg`,
     title: "It’s a piece of cake",
     heading: "Digmatic",
     subtitle: null,
@@ -41,14 +44,14 @@ const slides = [
   },
 ];
 function Home() {
-  useEffect(() => {
-    $(".slider-bg").flexslider({
-      animation: "fade",
-      slideshow: true,
-      controlNav: true,
-      keyboard: true,
-    });
-  }, []);
+  // useEffect(() => {
+  //   $(".slider-bg").flexslider({
+  //     animation: "fade",
+  //     slideshow: true,
+  //     controlNav: true,
+  //     keyboard: true,
+  //   });
+  // }, []);
 
   return (
     <section className="pt-0 pb-0" id="home">

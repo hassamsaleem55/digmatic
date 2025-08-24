@@ -1,3 +1,7 @@
+import { config } from "../../utilities/config";
+
+const landingImagesPath = config.basePaths.landingAssets.images;
+const imagePath = landingImagesPath + "/portfolio";
 const catPortfolio = [
   { id: 1, catName: "All", isActive: true },
   { id: 2, catName: "Web", isActive: false },
@@ -8,37 +12,37 @@ const catPortfolio = [
 const portfolioGrid = [
   {
     id: 1,
-    img: "assets/images/portfolio/grid/1.jpg",
+    img: `${imagePath}/grid/1.jpg`,
     title: "Business Cards",
     dataGroups: ["all", "print", "branding"],
   },
   {
     id: 2,
-    img: "assets/images/portfolio/grid/2.jpg",
+    img: `${imagePath}/grid/2.jpg`,
     title: "Magazine",
     dataGroups: ["all", "branding", "web"],
   },
   {
     id: 3,
-    img: "assets/images/portfolio/grid/3.jpg",
+    img: `${imagePath}/grid/3.jpg`,
     title: "Rabycad CD Design",
     dataGroups: ["all", "branding"],
   },
   {
     id: 4,
-    img: "assets/images/portfolio/grid/4.jpg",
+    img: `${imagePath}/grid/4.jpg`,
     title: "Micro Chips",
     dataGroups: ["all", "print"],
   },
   {
     id: 5,
-    img: "assets/images/portfolio/grid/5.jpg",
+    img: `${imagePath}/grid/5.jpg`,
     title: "Flyer",
     dataGroups: ["all", "web"],
   },
   {
     id: 6,
-    img: "assets/images/portfolio/grid/6.jpg",
+    img: `${imagePath}/grid/6.jpg`,
     title: "Flat Web Design",
     dataGroups: ["all", "web", "print"],
   },

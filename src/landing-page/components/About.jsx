@@ -1,3 +1,6 @@
+import { config } from "../../utilities/config";
+
+const landingImagesPath = config.basePaths.landingAssets.images;
 const featureItems = [
   {
     id: 1,
@@ -56,7 +59,7 @@ function About() {
           <div
             className="bg-flex-holder bg-flex-cover"
             style={{
-              backgroundImage: "url(assets/images/onepage-bg-left.jpg)",
+              backgroundImage: `url(${landingImagesPath}/onepage-bg-left.jpg)`,
             }}
           />
         </div>

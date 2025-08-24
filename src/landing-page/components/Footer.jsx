@@ -1,4 +1,7 @@
 import { Link } from "react-scroll";
+import { config } from "../../utilities/config";
+
+const landingImagesPath = config.basePaths.landingAssets.images;
 
 function Footer(props) {
   return (
@@ -13,7 +16,7 @@ function Footer(props) {
                     <a href="index.html">
                       <img
                         className="logo logo-display"
-                        src="assets/images/logo-footer.png"
+                        src=`${landingImagesPath}/images/logo-footer.png`
                         alt=""
                       />
                     </a>

@@ -1,58 +1,52 @@
-import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Services from "./components/Services";
-import Team from "./components/Team";
-import Work from "./components/Work";
-import Pricing from "./components/Pricing";
-import ContactUs from "./components/ContactUs";
-import Footer from "./components/Footer";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useDynamicAssets } from "./utilities/hooks";
+import { config } from "./utilities/config";
+import LandingPage from "./landing-page/main";
+import Dashboard from "./admin-panel/Dashboard";
 
-function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+const landingImagesPath = config.basePaths.landingAssets.images;
+const landingCssPath = config.basePaths.landingAssets.css;
+const landingJsPath = config.basePaths.landingAssets.js;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || window.pageYOffset;
-      const sections = document.querySelectorAll("section[id]");
-      let current = "";
-      sections.forEach((section) => {
-        const offsetTop = section.offsetTop;
-        if (window.scrollY >= offsetTop - 100) {
-          current = section.getAttribute("id");
-        }
-      });
+const routeAssets = {
+  "/": {
+    css: [
+      {
+        link: `${landingImagesPath}/favicon.ico`,
+        rel: "shortcut icon",
+      },
+      { link: `${landingCssPath}/master.css`, rel: "stylesheet" },
+      { link: `${landingCssPath}/responsive.css`, rel: "stylesheet" },
+    ],
+    js: [
+      `${landingJsPath}/jquery.min.js`,
+      `${landingJsPath}/validator.js`,
+      `${landingJsPath}/plugins.js`,
+      `${landingJsPath}/master.js`,
+      `${landingJsPath}/bootsnav.js`,
+    ],
+  },
+  "/admin": {
+    css: [],
+    js: [],
+  },
+};
 
-      setIsScrolled(scrollTop > 34);
-      setActiveSection(current);
-    };
+const Layout = () => {
+  useDynamicAssets(routeAssets);
+  return <Outlet />;
+};
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <LandingPage /> },
+      { path: "/admin", element: <Dashboard /> },
+    ],
+  },
+]);
 
-  return (
-    <>
-      <div id="loader-overlay">
-        <div className="loader-wrapper">
-          <div className="arcon-pulse" />
-        </div>
-      </div>
-      <div className="wrapper">
-        <Navbar isScrolled={isScrolled} activeSection={activeSection} />
-        <Home />
-        <About />
-        <Services />
-        <Team />
-        <Work />
-        {/* <Pricing /> */}
-        <ContactUs />
-        <Footer isScrolled={isScrolled} />
-      </div>
-    </>
-  );
+export default function App() {
+  return <RouterProvider router={router} />;
 }
-
-export default App;

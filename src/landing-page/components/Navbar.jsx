@@ -1,5 +1,7 @@
 import { Link } from "react-scroll";
+import { config } from "../../utilities/config";
 
+const landingImagesPath = config.basePaths.landingAssets.images;
 const navItems = [
   { id: "home", title: "Home" },
   { id: "about", title: "About" },
@@ -47,12 +49,12 @@ function Navbar({ activeSection, isScrolled }) {
             <Link to="home" smooth duration={500}>
               <img
                 className="logo logo-display"
-                src="assets/images/logo-white.png"
+                src={`${landingImagesPath}/logo-white.png`}
                 alt=""
               />
               <img
                 className="logo logo-scrolled"
-                src="assets/images/logo-black.png"
+                src={`${landingImagesPath}/logo-black.png`}
                 alt=""
               />
             </Link>
