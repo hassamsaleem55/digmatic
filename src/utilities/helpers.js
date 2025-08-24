@@ -35,7 +35,7 @@ export function loadJsFiles(files) {
     script.src = src;
     script.dataset.dynamic = "true";
     script.onload = () => loadNext(index + 1);
-    document.body.appendChild(script);
+    document.head.appendChild(script);
   };
   loadNext(0);
 }

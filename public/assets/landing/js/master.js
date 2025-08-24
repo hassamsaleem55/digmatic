@@ -13,7 +13,7 @@ jQuery(function ($) {
 
   jQuery(document).ready(function ($) {
     
-	parallaxEffect();
+	// parallaxEffect();
 
     function handleLoaded() {
       $("#loader-overlay").fadeOut("slow", function () {
@@ -87,23 +87,23 @@ jQuery(function ($) {
       });
     }
 
-    $(".progress-ring").waypoint(
-      function () {
-        var totalProgress, progress, circles;
-        circles = document.querySelectorAll(".progress-svg");
-        for (var i = 0; i < circles.length; i++) {
-          totalProgress = circles[i]
-            .querySelector("circle")
-            .getAttribute("stroke-dasharray");
-          progress = circles[i].parentElement.getAttribute(
-            "data-circle-percent"
-          );
-          circles[i].querySelector(".bar").style["stroke-dashoffset"] =
-            (totalProgress * progress) / 100;
-        }
-      },
-      { offset: "100%", triggerOnce: true }
-    );
+    // $(".progress-ring").waypoint(
+    //   function () {
+    //     var totalProgress, progress, circles;
+    //     circles = document.querySelectorAll(".progress-svg");
+    //     for (var i = 0; i < circles.length; i++) {
+    //       totalProgress = circles[i]
+    //         .querySelector("circle")
+    //         .getAttribute("stroke-dasharray");
+    //       progress = circles[i].parentElement.getAttribute(
+    //         "data-circle-percent"
+    //       );
+    //       circles[i].querySelector(".bar").style["stroke-dashoffset"] =
+    //         (totalProgress * progress) / 100;
+    //     }
+    //   },
+    //   { offset: "100%", triggerOnce: true }
+    // );
 
     /* ===== Flex & Owl Sliders ===== */
 
@@ -289,9 +289,9 @@ jQuery(function ($) {
       });
     }
 
-    function parallaxEffect() {
-      $(".parallax-effect").parallax();
-    }
+    // function parallaxEffect() {
+    //   $(".parallax-effect").parallax();
+    // }
 
     /* ===== Parallax Stellar ===== */
 
