@@ -9,7 +9,7 @@ import Pricing from "./components/Pricing";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 
-function LandingMain() {
+function LandingMain({ imagePath }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
@@ -41,15 +41,15 @@ function LandingMain() {
         </div>
       </div>
       <div className="wrapper" style={{ display: "none" }}>
-        <Navbar isScrolled={isScrolled} activeSection={activeSection} />
-        <Home />
-        <About />
+        <Navbar imagePath={imagePath} isScrolled={isScrolled} activeSection={activeSection} />
+        <Home imagePath={imagePath} />
+        <About imagePath={imagePath} />
         <Services />
-        <Team />
-        <Work />
+        <Team imagePath={imagePath} />
+        <Work imagePath={imagePath} />
         {/* <Pricing /> */}
         <ContactUs />
-        <Footer isScrolled={isScrolled} />
+        <Footer imagePath={imagePath} isScrolled={isScrolled} />
       </div>
     </>
   );

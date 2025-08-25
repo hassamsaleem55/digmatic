@@ -1,9 +1,6 @@
 import { Link } from "react-scroll";
-import { config } from "../../utilities/config";
 
-const landingImagesPath = config.basePaths.landingAssets.images;
-
-function Footer(props) {
+function Footer({ imagePath, isScrolled }) {
   return (
     <>
       <footer className="footer" id="footer-fixed">
@@ -16,7 +13,7 @@ function Footer(props) {
                     <a href="index.html">
                       <img
                         className="logo logo-display"
-                        src=`${landingImagesPath}/images/logo-footer.png`
+                        src=`${imagePath}/images/logo-footer.png`
                         alt=""
                       />
                     </a>
@@ -134,7 +131,7 @@ function Footer(props) {
         to="home"
         smooth={true}
         duration={500}
-        className={props.isScrolled ? "show" : ""}
+        className={isScrolled ? "show" : ""}
       >
         ↑
       </Link>

@@ -1,17 +1,14 @@
-import AnimatedSection from "./AnimatedSection";
-
 function Pricing() {
   return (
-    <AnimatedSection id="pricing">
+    <section id="pricing">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
-            <h2 className="text-uppercase wow fadeTop" data-wow-delay="0.1s">
+            <h2 className="text-uppercase">
               Our Pricing
             </h2>
             <h4
-              className="text-uppercase source-font wow fadeTop"
-              data-wow-delay="0.2s"
+              className="text-uppercase source-font"
             >
               - Choose Your Plan -
             </h4>
@@ -19,8 +16,7 @@ function Pricing() {
         </div>
         <div className="row mt-50">
           <div
-            className="col-md-3 pricing-table col-sm-6 wow fadeTop"
-            data-wow-delay="0.1s"
+            className="col-md-3 pricing-table col-sm-6"
           >
             <div className="pricing-box">
               <h4>Started</h4>
@@ -44,8 +40,7 @@ function Pricing() {
             </div>
           </div>
           <div
-            className="col-md-3 pricing-table col-sm-6 wow fadeTop"
-            data-wow-delay="0.2s"
+            className="col-md-3 pricing-table col-sm-6"
           >
             <div className="pricing-box">
               <h4>Basic</h4>
@@ -69,8 +64,7 @@ function Pricing() {
             </div>
           </div>
           <div
-            className="col-md-3 pricing-table-featured col-sm-6 wow fadeTop"
-            data-wow-delay="0.3s"
+            className="col-md-3 pricing-table-featured col-sm-6"
           >
             <div className="pricing-box">
               <h4>Standard</h4>
@@ -98,8 +92,7 @@ function Pricing() {
             </div>
           </div>
           <div
-            className="col-md-3 pricing-table col-sm-6 wow fadeTop"
-            data-wow-delay="0.4s"
+            className="col-md-3 pricing-table col-sm-6"
           >
             <div className="pricing-box">
               <h4>Pro</h4>
@@ -124,7 +117,7 @@ function Pricing() {
           </div>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
 

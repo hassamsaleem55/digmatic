@@ -1,18 +1,15 @@
 import { Link } from "react-scroll";
-import { config } from "../../utilities/config";
 
-const landingImagesPath = config.basePaths.landingAssets.images;
-const navItems = [
-  { id: "home", title: "Home" },
-  { id: "about", title: "About" },
-  { id: "service", title: "Services" },
-  { id: "team", title: "Team" },
-  { id: "work", title: "Work" },
-  // { id: "pricing", title: "Pricing" },
-  { id: "contact", title: "Contact Us" },
-];
-
-function Navbar({ isScrolled, activeSection }) {
+function Navbar({ imagePath, isScrolled, activeSection }) {
+  const navItems = [
+    { id: "home", title: "Home" },
+    { id: "about", title: "About" },
+    { id: "service", title: "Services" },
+    { id: "team", title: "Team" },
+    { id: "work", title: "Work" },
+    // { id: "pricing", title: "Pricing" },
+    { id: "contact", title: "Contact Us" },
+  ];
   return (
     <nav
       className={`navbar-scrollspy navbar navbar-default navbar-fixed white bootsnav on no-full ${
@@ -49,12 +46,12 @@ function Navbar({ isScrolled, activeSection }) {
             <Link to="home" smooth duration={500}>
               <img
                 className="logo logo-display"
-                src={`${landingImagesPath}/logo-white.png`}
+                src={`${imagePath}/logo-white.png`}
                 alt=""
               />
               <img
                 className="logo logo-scrolled"
-                src={`${landingImagesPath}/logo-black.png`}
+                src={`${imagePath}/logo-black.png`}
                 alt=""
               />
             </Link>

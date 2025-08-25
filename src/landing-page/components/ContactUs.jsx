@@ -1,8 +1,8 @@
-import AnimatedSection from "./AnimatedSection";
+import { Animated } from "./Animate";
 
 function ContactUs() {
   return (
-    <AnimatedSection className="contact-us white-bg" id="contact">
+    <section className="contact-us white-bg" id="contact">
       <div className="container">
         <div className="clearfix">
           <div className="bg-flex-right col-md-5 map-section">
@@ -18,18 +18,12 @@ function ContactUs() {
             ></iframe>
           </div>
           <div className="col-about-left col-md-7 text-left">
-            <h2
-              className="text-uppercase font-700 wow fadeTop"
-              data-wow-delay="0.1s"
-            >
+            <Animated as="h2" className="text-uppercase font-700">
               {`Contact Us`}
-            </h2>
-            <h4
-              className="text-uppercase source-font wow fadeTop"
-              data-wow-delay="0.2s"
-            >
+            </Animated>
+            <Animated as="h4" className="text-uppercase source-font">
               {`- Stay in Touch -`}
-            </h4>
+            </Animated>
             <form
               name="contact-form"
               id="contact-form"
@@ -38,7 +32,7 @@ function ContactUs() {
               className="mt-50"
             >
               <div className="messages" />
-              <div className="form-group wow fadeTop" data-wow-delay="0.1s">
+              <Animated as="div" className="form-group">
                 <label className="sr-only" htmlFor="name">
                   Name
                 </label>
@@ -52,8 +46,8 @@ function ContactUs() {
                   data-error="Your Name is Required"
                 />
                 <div className="help-block with-errors mt-20" />
-              </div>
-              <div className="form-group wow fadeTop" data-wow-delay="0.2s">
+              </Animated>
+              <Animated as="div" className="form-group">
                 <label className="sr-only" htmlFor="email">
                   Email
                 </label>
@@ -67,8 +61,8 @@ function ContactUs() {
                   data-error="Please Enter Valid Email"
                 />
                 <div className="help-block with-errors mt-20" />
-              </div>
-              <div className="form-group wow fadeTop" data-wow-delay="0.3s">
+              </Animated>
+              <Animated as="div" className="form-group">
                 <label className="sr-only" htmlFor="message">
                   Message
                 </label>
@@ -83,12 +77,11 @@ function ContactUs() {
                   defaultValue={""}
                 />
                 <div className="help-block with-errors mt-20" />
-              </div>
+              </Animated>
               <button
                 type="submit"
                 name="submit"
-                className="btn btn-color btn-circle wow fadeTop"
-                data-wow-delay="0.4s"
+                className="btn btn-color btn-circle"
               >
                 Book Now
               </button>
@@ -96,7 +89,7 @@ function ContactUs() {
           </div>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
 

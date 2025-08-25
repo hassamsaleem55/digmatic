@@ -1,81 +1,75 @@
-import { config } from "../../utilities/config";
-import AnimatedSection from "./AnimatedSection";
+import { Animated } from "./Animate";
 
-const landingImagesPath = config.basePaths.landingAssets.images;
-const imagePath = landingImagesPath + "/team";
-const teamItems = [
-  {
-    id: 1,
-    img: `${imagePath}/team-01.jpg`,
-    name: "David Marks",
-    designation: "UI/UX Designer",
-    socialLinks: [
-      { icon: "fa fa-facebook", href: "#" },
-      { icon: "fa fa-twitter", href: "#" },
-      { icon: "fa fa-youtube", href: "#" },
-    ],
-  },
-  {
-    id: 2,
-    img: `${imagePath}/team-02.jpg`,
-    name: "Lynda Stone",
-    designation: "Photographer",
-    socialLinks: [
-      { icon: "fa fa-facebook", href: "#" },
-      { icon: "fa fa-twitter", href: "#" },
-      { icon: "fa fa-youtube", href: "#" },
-    ],
-  },
-  {
-    id: 3,
-    img: `${imagePath}/team-03.jpg`,
-    name: "Karl Casey",
-    designation: "Web Developer",
-    socialLinks: [
-      { icon: "fa fa-facebook", href: "#" },
-      { icon: "fa fa-twitter", href: "#" },
-      { icon: "fa fa-youtube", href: "#" },
-    ],
-  },
-  {
-    id: 4,
-    img: `${imagePath}/team-04.jpg`,
-    name: "Roland Buford",
-    designation: "CEO/Founder",
-    socialLinks: [
-      { icon: "fa fa-facebook", href: "#" },
-      { icon: "fa fa-twitter", href: "#" },
-      { icon: "fa fa-youtube", href: "#" },
-    ],
-  },
-];
+function Team({ imagePath }) {
+  const teamImagePath = imagePath + "/team";
+  const teamItems = [
+    {
+      id: 1,
+      img: `${teamImagePath}/team-01.jpg`,
+      name: "David Marks",
+      designation: "UI/UX Designer",
+      socialLinks: [
+        { icon: "fa fa-facebook", href: "#" },
+        { icon: "fa fa-twitter", href: "#" },
+        { icon: "fa fa-youtube", href: "#" },
+      ],
+    },
+    {
+      id: 2,
+      img: `${teamImagePath}/team-02.jpg`,
+      name: "Lynda Stone",
+      designation: "Photographer",
+      socialLinks: [
+        { icon: "fa fa-facebook", href: "#" },
+        { icon: "fa fa-twitter", href: "#" },
+        { icon: "fa fa-youtube", href: "#" },
+      ],
+    },
+    {
+      id: 3,
+      img: `${teamImagePath}/team-03.jpg`,
+      name: "Karl Casey",
+      designation: "Web Developer",
+      socialLinks: [
+        { icon: "fa fa-facebook", href: "#" },
+        { icon: "fa fa-twitter", href: "#" },
+        { icon: "fa fa-youtube", href: "#" },
+      ],
+    },
+    {
+      id: 4,
+      img: `${teamImagePath}/team-04.jpg`,
+      name: "Roland Buford",
+      designation: "CEO/Founder",
+      socialLinks: [
+        { icon: "fa fa-facebook", href: "#" },
+        { icon: "fa fa-twitter", href: "#" },
+        { icon: "fa fa-youtube", href: "#" },
+      ],
+    },
+  ];
 
-function Team() {
   return (
-    <AnimatedSection className="white-bg" id="team">
+    <section className="white-bg" id="team">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
-            <h2 className="text-uppercase wow fadeTop" data-wow-delay="0.1s">
+            <Animated as="h2" className="text-uppercase">
               {`Meet Our Team`}
-            </h2>
-            <h4
-              className="text-uppercase source-font wow fadeTop"
-              data-wow-delay="0.2s"
-            >
+            </Animated>
+            <Animated as="h4" className="text-uppercase source-font">
               {`- We Are Stronger -`}
-            </h4>
+            </Animated>
           </div>
         </div>
         <div className="row mt-50">
           {teamItems.map(({ id, img, name, designation, socialLinks }) => {
             return (
-              <div
-                key={id}
-                className="col-md-3 col-sm-6 col-xs-12 wow fadeTop"
-                data-wow-delay={`0.${id}s`}
-              >
-                <div className="team-member-container gallery-image-hover">
+              <div key={id} className="col-md-3 col-sm-6 col-xs-12">
+                <Animated
+                  as="div"
+                  className="team-member-container gallery-image-hover"
+                >
                   <img
                     src={img}
                     className="img-responsive"
@@ -84,8 +78,12 @@ function Team() {
                   <div className="member-caption">
                     <div className="member-description text-center">
                       <div className="member-description-wrap">
-                        <h4 className="member-title">{name}</h4>
-                        <p className="member-subtitle">{designation}</p>
+                        <Animated as="h4" className="member-title">
+                          {name}
+                        </Animated>
+                        <Animated as="p" className="member-subtitle">
+                          {designation}
+                        </Animated>
                         <ul className="member-icons">
                           {socialLinks.map((link, idx) => {
                             return (
@@ -100,13 +98,13 @@ function Team() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </Animated>
               </div>
             );
           })}
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
 

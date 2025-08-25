@@ -1,58 +1,50 @@
 import Slider from "react-slick";
-import { config } from "../../utilities/config";
-import AnimatedSection from "./AnimatedSection";
 
-const landingImagesPath = config.basePaths.landingAssets.images;
-const imagePath = landingImagesPath + "/team";
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  centerMode: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  centerPadding: "0",
-};
+function Testimonials({ imagePath }) {
+  const teamImagePath = imagePath + "/team";
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerPadding: "0",
+  };
 
-const arrTestimonials = [
-  {
-    id: 1,
-    name: "Hank Dano",
-    designation: "Founder &amp; CEO of Arcon",
-    img: `${imagePath}/avatar-1.jpg`,
-    comment:
-      "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
-  },
-  {
-    id: 2,
-    name: "Julia Banks",
-    designation: "CEO of Arcon",
-    img: `${imagePath}/avatar-2.jpg`,
-    comment:
-      "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
-  },
-  {
-    id: 3,
-    name: "Mark Smith",
-    designation: "CEO of Arcon",
-    img: `${imagePath}/avatar-3.jpg`,
-    comment:
-      "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
-  },
-];
+  const arrTestimonials = [
+    {
+      id: 1,
+      name: "Hank Dano",
+      designation: "Founder &amp; CEO of Arcon",
+      img: `${teamImagePath}/avatar-1.jpg`,
+      comment:
+        "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
+    },
+    {
+      id: 2,
+      name: "Julia Banks",
+      designation: "CEO of Arcon",
+      img: `${teamImagePath}/avatar-2.jpg`,
+      comment:
+        "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
+    },
+    {
+      id: 3,
+      name: "Mark Smith",
+      designation: "CEO of Arcon",
+      img: `${teamImagePath}/avatar-3.jpg`,
+      comment:
+        "Quisque hendrerit turpis sit amet tortor condimentum, nec commodo lorem condimentum. Sed id diam efficitur, mattis tellus ac, malesuada purus. In ultrices nisl sed eleifend consequat.",
+    },
+  ];
 
-function Testimonials() {
   return (
-    <AnimatedSection className="grey-bg">
+    <section className="grey-bg">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
-            <h2 className="text-uppercase wow fadeTop" data-wow-delay="0.1s">
-              {`Testimonials`}
-            </h2>
-            <h4
-              className="text-uppercase source-font wow fadeTop"
-              data-wow-delay="0.2s"
-            >
+            <h2 className="text-uppercase">{`Testimonials`}</h2>
+            <h4 className="text-uppercase source-font">
               {`- Statisfied Clients -`}
             </h4>
           </div>
@@ -84,7 +76,7 @@ function Testimonials() {
           </div>
         </div>
       </div>
-    </AnimatedSection>
+    </section>
   );
 }
 

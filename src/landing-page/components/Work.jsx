@@ -2,12 +2,12 @@ import Portfolio from "./Portfolio";
 import Achievements from "./Achievements";
 // import Testimonials from "./Testimonials";
 
-function Work() {
+function Work({ imagePath }) {
   return (
     <>
-      <Portfolio />
+      <Portfolio imagePath={imagePath} />
       <Achievements />
-      {/* <Testimonials /> */}
+      {/* <Testimonials imagePath={imagePath} /> */}
     </>
   );
 }
