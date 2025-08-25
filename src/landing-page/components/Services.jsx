@@ -1,3 +1,5 @@
+import AnimatedSection from "./AnimatedSection";
+
 const ServiceItems = [
   {
     id: 1,
@@ -31,7 +33,7 @@ const ServiceItems = [
 
 function Services() {
   return (
-    <section id="service">
+    <AnimatedSection id="service">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
@@ -64,7 +66,7 @@ function Services() {
           })}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

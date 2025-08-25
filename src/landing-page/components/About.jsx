@@ -1,4 +1,5 @@
 import { config } from "../../utilities/config";
+import AnimatedSection from "./AnimatedSection";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
 const featureItems = [
@@ -28,7 +29,7 @@ const featureItems = [
 function About() {
   return (
     <>
-      <section className="first-ico-box" id="about">
+      <AnimatedSection id="about" className="about-section first-ico-box">
         <div className="container">
           <div className="row">
             <div className="col-sm-8 section-heading">
@@ -53,8 +54,8 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="white-bg">
+      </AnimatedSection>
+      <AnimatedSection className="white-bg">
         <div className="col-md-6 col-sm-4 bg-flex bg-flex-left">
           <div
             className="bg-flex-holder bg-flex-cover"
@@ -98,7 +99,7 @@ function About() {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </>
   );
 }

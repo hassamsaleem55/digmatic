@@ -12,7 +12,7 @@ const navItems = [
   { id: "contact", title: "Contact Us" },
 ];
 
-function Navbar({ activeSection, isScrolled }) {
+function Navbar({ isScrolled, activeSection }) {
   return (
     <nav
       className={`navbar-scrollspy navbar navbar-default navbar-fixed white bootsnav on no-full ${

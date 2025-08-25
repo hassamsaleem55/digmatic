@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { config } from "../../utilities/config";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
-
 const slides = [
   {
     id: 1,
@@ -44,15 +42,6 @@ const slides = [
   },
 ];
 function Home() {
-  // useEffect(() => {
-  //   $(".slider-bg").flexslider({
-  //     animation: "fade",
-  //     slideshow: true,
-  //     controlNav: true,
-  //     keyboard: true,
-  //   });
-  // }, []);
-
   return (
     <section className="pt-0 pb-0" id="home">
       <div className="slider-bg flexslider">

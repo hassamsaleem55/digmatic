@@ -9,9 +9,9 @@ import Pricing from "./components/Pricing";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 
-function LandingPage() {
+function LandingMain() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +40,7 @@ function LandingPage() {
           <div className="arcon-pulse" />
         </div>
       </div>
-      <div className="wrapper" style={{display: "none"}}>
+      <div className="wrapper" style={{ display: "none" }}>
         <Navbar isScrolled={isScrolled} activeSection={activeSection} />
         <Home />
         <About />
@@ -55,4 +55,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default LandingMain;

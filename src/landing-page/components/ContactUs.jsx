@@ -1,6 +1,8 @@
+import AnimatedSection from "./AnimatedSection";
+
 function ContactUs() {
   return (
-    <section className="contact-us white-bg" id="contact">
+    <AnimatedSection className="contact-us white-bg" id="contact">
       <div className="container">
         <div className="clearfix">
           <div className="bg-flex-right col-md-5 map-section">
@@ -94,7 +96,7 @@ function ContactUs() {
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

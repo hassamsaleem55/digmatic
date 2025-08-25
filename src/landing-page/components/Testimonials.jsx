@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import { config } from "../../utilities/config";
+import AnimatedSection from "./AnimatedSection";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
 const imagePath = landingImagesPath + "/team";
@@ -41,7 +42,7 @@ const arrTestimonials = [
 
 function Testimonials() {
   return (
-    <section className="grey-bg">
+    <AnimatedSection className="grey-bg">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
@@ -83,7 +84,7 @@ function Testimonials() {
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

@@ -1,3 +1,5 @@
+import AnimatedSection from "./AnimatedSection";
+
 const arrAchievements = [
   { id: 1, title: "Working Hours", count: "5600", icon: "mdi mdi-clock" },
   { id: 2, title: "Happy Clients", count: "220", icon: "mdi mdi-emoticon" },
@@ -7,7 +9,7 @@ const arrAchievements = [
 
 function Achievements() {
   return (
-    <section className="dark-bg pt-80 pb-80">
+    <AnimatedSection className="dark-bg pt-80 pb-80">
       <div className="container-fluid">
         <div className="row">
           {arrAchievements.map(({ id, title, count, icon }) => {
@@ -25,7 +27,7 @@ function Achievements() {
           })}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 

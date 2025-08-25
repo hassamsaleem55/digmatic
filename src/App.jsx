@@ -1,7 +1,13 @@
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { useDynamicAssets } from "./utilities/hooks";
+import { useEffect } from "react";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
+import { loadCssFiles, loadJsFiles } from "./utilities/helpers";
 import { config } from "./utilities/config";
-import LandingPage from "./landing-page/main";
+import LandingMain from "./landing-page/LandingMain";
 import Dashboard from "./admin-panel/Dashboard";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
@@ -20,10 +26,8 @@ const routeAssets = {
     ],
     js: [
       `${landingJsPath}/jquery.min.js`,
-      `${landingJsPath}/validator.js`,
       `${landingJsPath}/plugins.js`,
       `${landingJsPath}/master.js`,
-      `${landingJsPath}/bootsnav.js`,
     ],
   },
   "/admin": {
@@ -33,7 +37,16 @@ const routeAssets = {
 };
 
 const Layout = () => {
-  useDynamicAssets(routeAssets);
+  const location = useLocation();
+  const assets = routeAssets[location.pathname] || { css: [], js: [] };
+
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      loadCssFiles(assets.css);
+      loadJsFiles(assets.js);
+    });
+  }, []);
+
   return <Outlet />;
 };
 
@@ -41,7 +54,7 @@ const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
-      { path: "/", element: <LandingPage /> },
+      { path: "/", element: <LandingMain /> },
       { path: "/admin", element: <Dashboard /> },
     ],
   },

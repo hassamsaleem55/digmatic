@@ -1,12 +1,17 @@
+"use client";
+
+import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { config } from "../../utilities/config";
+import AnimatedSection from "./AnimatedSection";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
 const imagePath = landingImagesPath + "/portfolio";
 const catPortfolio = [
-  { id: 1, catName: "All", isActive: true },
-  { id: 2, catName: "Web", isActive: false },
-  { id: 3, catName: "Branding", isActive: false },
-  { id: 4, catName: "Print", isActive: false },
+  { id: 1, catName: "All" },
+  { id: 2, catName: "Web" },
+  { id: 3, catName: "Branding" },
+  { id: 4, catName: "Print" },
 ];
 
 const portfolioGrid = [
@@ -48,71 +53,78 @@ const portfolioGrid = [
   },
 ];
 
-function Portfolio() {
+export default function Portfolio() {
+  const [selectedTab, setSelectedTab] = useState(catPortfolio[0]);
+
   return (
-    <section className="pt-0 pb-0 white-bg" id="work">
+    <AnimatedSection className="pt-0 pb-0 white-bg" id="work">
       <div className="container-fluid">
         <div className="row">
           <div className="portfolio-container text-center">
-            <ul
-              id="portfolio-filter"
-              className="list-inline wow fadeTop"
-              data-wow-delay="0.1s"
-            >
-              {catPortfolio.map(({ id, catName, isActive }) => {
-                return (
-                  <li
-                    key={id}
-                    className={isActive ? "active" : ""}
-                    data-group={catName.toLowerCase()}
-                  >
-                    {catName}
-                  </li>
-                );
-              })}
+            <ul id="portfolio-filter" className="list-inline fadeTop">
+              {catPortfolio.map((item) => (
+                <motion.li
+                  key={item.id}
+                  initial={false}
+                  className={selectedTab.id === item.id ? "active" : ""}
+                  onClick={() => setSelectedTab(item)}
+                >
+                  {item.catName}
+                  {item.catName === selectedTab.catName ? (
+                    <motion.div layoutId="underline" />
+                  ) : null}
+                </motion.li>
+              ))}
             </ul>
             <ul id="portfolio-grid" className="three-column hover-two">
-              {portfolioGrid.map(({ id, img, title, dataGroups }) => {
-                return (
-                  <li
-                    key={id}
-                    className="portfolio-item wow fadeIn"
-                    data-wow-delay={`0.${id}s`}
-                    data-groups={JSON.stringify(dataGroups)}
-                  >
-                    <div className="portfolio gallery-image-hover">
-                      <div className="dark-overlay" />
-                      <img src={img} alt="" />
-                      <div className="portfolio-wrap">
-                        <div className="portfolio-description">
-                          <h3 className="portfolio-title">{title}</h3>
-                          <a href="#" className="links">
-                            {`${dataGroups[1]} Design`}
-                          </a>
+              <AnimatePresence mode="popLayout">
+                {portfolioGrid
+                  .filter((p) =>
+                    selectedTab.catName.toLowerCase() === "all"
+                      ? true
+                      : p.dataGroups.includes(selectedTab.catName.toLowerCase())
+                  )
+                  .map(({ id, img, title, dataGroups }) => (
+                    <motion.li
+                      key={id}
+                      layout
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="portfolio-item"
+                    >
+                      <div className="portfolio gallery-image-hover">
+                        <div className="dark-overlay" />
+                        <img src={img} alt={title} />
+                        <div className="portfolio-wrap">
+                          <div className="portfolio-description">
+                            <h3 className="portfolio-title">{title}</h3>
+                            <a href="#" className="links">
+                              {`${dataGroups[1] ?? "design"} Design`}
+                            </a>
+                          </div>
+                          <ul className="portfolio-details">
+                            <li>
+                              <a className="alpha-lightbox" href={img}>
+                                <i className="fa fa-search" />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i className="fa fa-link" />
+                              </a>
+                            </li>
+                          </ul>
                         </div>
-                        <ul className="portfolio-details">
-                          <li>
-                            <a className="alpha-lightbox" href={img}>
-                              <i className="fa fa-search" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <i className="fa fa-link" />
-                            </a>
-                          </li>
-                        </ul>
                       </div>
-                    </div>
-                  </li>
-                );
-              })}
+                    </motion.li>
+                  ))}
+              </AnimatePresence>
             </ul>
           </div>
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
-
-export default Portfolio;

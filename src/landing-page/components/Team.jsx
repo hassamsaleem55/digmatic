@@ -1,4 +1,5 @@
 import { config } from "../../utilities/config";
+import AnimatedSection from "./AnimatedSection";
 
 const landingImagesPath = config.basePaths.landingAssets.images;
 const imagePath = landingImagesPath + "/team";
@@ -51,7 +52,7 @@ const teamItems = [
 
 function Team() {
   return (
-    <section className="white-bg" id="team">
+    <AnimatedSection className="white-bg" id="team">
       <div className="container">
         <div className="row">
           <div className="col-sm-8 section-heading">
@@ -105,7 +106,7 @@ function Team() {
           })}
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 
