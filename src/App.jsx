@@ -5,7 +5,7 @@ import LandingMain from "./landing-page/LandingMain";
 import Dashboard from "./admin-panel/Dashboard";
 
 const landingImageBasePath = config.basePaths.landingAssets.images;
-const adminImageBasePath = config.basePaths.landingAssets.images;
+const adminImageBasePath = config.basePaths.adminAssets.images;
 const router = createBrowserRouter([
   {
     element: <Layout />,
