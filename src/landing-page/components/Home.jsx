@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-scroll";
 
 function Home({ imagePath }) {
@@ -41,7 +42,18 @@ function Home({ imagePath }) {
       ],
     },
   ];
-  
+
+  useEffect(() => {
+    $(".slider-bg").flexslider({
+      mode: "fade",
+      animation: "fade",
+      slideshow: true,
+      auto: true,
+      controlNav: true,
+      keyboard: true,
+    });
+  }, []);
+
   return (
     <section className="pt-0 pb-0" id="home">
       <div className="slider-bg flexslider">
@@ -77,7 +89,7 @@ function Home({ imagePath }) {
                           className={btn.className}
                         >
                           <span>
-                            {btn.text}{" "}
+                            {btn.text}
                             {btn.text.includes("More") && (
                               <i className="mdi mdi-arrow-right" />
                             )}

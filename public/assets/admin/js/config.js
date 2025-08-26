@@ -4,7 +4,7 @@
     o = {
       theme: "light",
       layout: { mode: "fluid" },
-      topbar: { color: "dark" },
+      topbar: { color: "light" },
       menu: { color: "dark" },
       sidenav: { size: "default" },
     },

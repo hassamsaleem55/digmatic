@@ -5,13 +5,20 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Team from "./components/Team";
 import Work from "./components/Work";
-import Pricing from "./components/Pricing";
 import ContactUs from "./components/ContactUs";
 import Footer from "./components/Footer";
 
-function LandingMain({ imagePath }) {
+function LandingWrapper({ imagePath }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1200);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,26 +40,33 @@ function LandingMain({ imagePath }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <>
+  if (isLoading) {
+    return (
       <div id="loader-overlay">
         <div className="loader-wrapper">
           <div className="arcon-pulse" />
         </div>
       </div>
-      <div className="wrapper" style={{ display: "none" }}>
-        <Navbar imagePath={imagePath} isScrolled={isScrolled} activeSection={activeSection} />
-        <Home imagePath={imagePath} />
-        <About imagePath={imagePath} />
-        <Services />
-        <Team imagePath={imagePath} />
-        <Work imagePath={imagePath} />
-        {/* <Pricing /> */}
-        <ContactUs />
-        <Footer imagePath={imagePath} isScrolled={isScrolled} />
-      </div>
-    </>
+    );
+  }
+
+  return (
+    <div className="wrapper">
+      <Navbar
+        imagePath={imagePath}
+        isScrolled={isScrolled}
+        activeSection={activeSection}
+      />
+      <Home imagePath={imagePath} />
+      <About imagePath={imagePath} />
+      <Services />
+      <Team imagePath={imagePath} />
+      <Work imagePath={imagePath} />
+      {/* <Pricing /> */}
+      <ContactUs />
+      <Footer imagePath={imagePath} isScrolled={isScrolled} />
+    </div>
   );
 }
 
-export default LandingMain;
+export default LandingWrapper;

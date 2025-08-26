@@ -9,6 +9,7 @@ function Testimonials({ imagePath }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     centerPadding: "0",
+    autoplay: true
   };
 
   const arrTestimonials = [

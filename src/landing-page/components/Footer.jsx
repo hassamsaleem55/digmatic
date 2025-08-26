@@ -125,6 +125,7 @@ function Footer({ imagePath, isScrolled }) {
           {/* </div> */}
         </div>
       </footer>
+      <div className="footer-height" style={{ height: "448px" }}></div>
       <Link
         id="back-to-top"
         title="Back to top"

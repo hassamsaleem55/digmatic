@@ -3321,7 +3321,7 @@ a.readmore > span {
 /*=============================================
                         Footer
 =============================================*/
-/* @media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) {
   #footer-fixed {
     position: fixed;
     left: 0;
@@ -3329,7 +3329,7 @@ a.readmore > span {
     bottom: 0;
     z-index: 1;
   }
-} */
+}
 
 .footer{
   font-size:16px;

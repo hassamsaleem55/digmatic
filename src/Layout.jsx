@@ -8,16 +8,24 @@ function Layout() {
   const pathname = location.pathname;
   const segments = pathname.split("/").filter(Boolean);
   const firstPart = segments.length > 0 ? `/${segments[0]}` : `/`;
-  const assets = config.routeAssets[firstPart] || { css: [], js: [] };
+
+  let assets;
+  if (firstPart === "/admin") {
+    assets = config.routeAssets["/admin"];
+  } else if (firstPart === "/") {
+    assets = config.routeAssets["/"];
+  } else {
+    assets = config.routeAssets["/*"]; // catch-all
+  }
 
   useEffect(() => {
     requestAnimationFrame(() => {
       const title = document.createElement("title");
       title.dataset.dynamic = "true";
-      title.text = firstPart === "/" ? "Digmatic" : "Digmatic | Admin";
+      title.text = firstPart === "/admin" ? "Digmatic | Admin" : "Digmatic";
       document.head.appendChild(title);
-      loadCssFiles(assets.css);
-      loadJsFiles(assets.js);
+      loadCssFiles(assets?.css || []);
+      loadJsFiles(assets?.js || []);
     });
   }, []);
 
