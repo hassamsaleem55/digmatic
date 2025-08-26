@@ -39,7 +39,7 @@ function LandingWrapper({ imagePath }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  
   if (isLoading) {
     return (
       <div id="loader-overlay">

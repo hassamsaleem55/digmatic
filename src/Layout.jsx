@@ -19,6 +19,7 @@ function Layout() {
   }
 
   useEffect(() => {
+    console.log("test use strict on live")
     requestAnimationFrame(() => {
       const title = document.createElement("title");
       title.dataset.dynamic = "true";

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-scroll";
 
 function Navbar({ imagePath, isScrolled, activeSection }) {
@@ -10,6 +11,7 @@ function Navbar({ imagePath, isScrolled, activeSection }) {
     // { id: "pricing", title: "Pricing" },
     { id: "contact", title: "Contact Us" },
   ];
+  
   return (
     <nav
       className={`navbar-scrollspy navbar navbar-default navbar-fixed white bootsnav on no-full ${

@@ -39,14 +39,14 @@ jQuery(function ($) {
       });
     }
 
-    $(".slider-bg").flexslider({
-      mode: "fade",
-      animation: "fade",
-      slideshow: true,
-      auto: true,
-      controlNav: true,
-      keyboard: true,
-    });
+    // $(".slider-bg").flexslider({
+    //   mode: "fade",
+    //   animation: "fade",
+    //   slideshow: true,
+    //   auto: true,
+    //   controlNav: true,
+    //   keyboard: true,
+    // });
 
     if ($("#back-to-top").length) {
       var scrollTrigger = 100,
