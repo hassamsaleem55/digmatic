@@ -13,6 +13,7 @@ import Account from "./admin-panel/pages/Account";
 import AdminNotFound from "./admin-panel/AdminNotFound";
 
 const landingImageBasePath = config.basePaths.landingAssetsBasePaths.images;
+const adminImageBasePath = config.basePaths.adminAssetsBasePaths.images;
 const adminRoutes = [
   { index: true, element: <Home /> },
   { path: "about", element: <About /> },
@@ -20,7 +21,7 @@ const adminRoutes = [
   { path: "portfolio", element: <Portfolio /> },
   { path: "settings", element: <Settings /> },
   { path: "account", element: <Account /> },
-  { path: "*", element: <AdminNotFound /> },
+  { path: "*", element: <AdminNotFound imagePath={adminImageBasePath} /> },
 ];
 
 const router = createBrowserRouter([
@@ -45,5 +46,5 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }

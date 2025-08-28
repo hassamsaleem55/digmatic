@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 function LandingWrapper({ imagePath }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || window.pageYOffset;

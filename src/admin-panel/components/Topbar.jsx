@@ -1,16 +1,6 @@
-import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-function Topbar({ navItems }) {
-  const [pageTitle, setPageTitle] = useState();
-  const location = useLocation();
-  const pathname = location.pathname;
-
-  useEffect(() => {
-    const obj = navItems.sideBar.find((item) => item["path"] === pathname) || null;
-    setPageTitle(obj && obj.title);
-  }, []);
-
+function Topbar({ navItems, pageTitle, setPageTitle }) {
   return (
     <header className="app-topbar topbar-active" id="header">
       <div className="page-container topbar-menu">
@@ -40,12 +30,13 @@ function Topbar({ navItems }) {
                 <i className="ri-arrow-down-s-line d-none d-lg-block align-middle ms-1" />
               </a>
               <div className="dropdown-menu dropdown-menu-end">
-                {navItems.topBar.map((value, index) => {
+                {navItems.map((value, index) => {
                   return (
                     <Link
                       key={index}
-                      to={`/admin/${value.path}`}
+                      to={`/admin${value.path}`}
                       className="dropdown-item"
+                      onClick={() => setPageTitle(value.title)}
                     >
                       <i className={`${value.icon} me-1 fs-16 align-middle`} />
                       <span className="align-middle">{value.title}</span>

@@ -16,11 +16,11 @@ const landingAssetsBasePaths = {
 };
 
 const adminAssetsBasePaths = {
-  css: "../assets/admin/css",
-  js: "../assets/admin/js",
-  images: "../assets/admin/images",
-  fonts: "../assets/admin/fonts",
-  vendor: "../assets/admin/vendor",
+  css: "assets/admin/css",
+  js: "assets/admin/js",
+  images: "assets/admin/images",
+  fonts: "assets/admin/fonts",
+  vendor: "assets/admin/vendor",
 };
 
 // Path builders
@@ -35,7 +35,6 @@ const landingAssets = {
   ],
   js: [
     landing.js("jquery.min.js"),
-    // landing.js("plugins.js"),
     landing.js("master.js"),
   ],
 };
@@ -57,8 +56,8 @@ export const config = {
       ],
       js: [
         admin.js("config.js"),
-        admin.js("vendor.min.js"),
-        admin.js("app.js"),
+        // admin.js("vendor.min.js"),
+        // admin.js("app.js"),
         // admin.vendor("apexcharts/apexcharts.min.js"),
         // admin.js("pages/dashboard.js"),
       ],

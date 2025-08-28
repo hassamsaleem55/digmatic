@@ -4,10 +4,8 @@ import { Link } from "react-scroll";
 function Footer({ imagePath, isScrolled }) {
   useEffect(() => {
     const backToTopBtn = document.querySelector("#back-to-top");
-
     if (backToTopBtn) {
       const scrollTrigger = 100;
-
       const backToTop = () => {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         if (scrollTop > scrollTrigger) {
@@ -17,13 +15,8 @@ function Footer({ imagePath, isScrolled }) {
         }
       };
 
-      // Run on load
       backToTop();
-
-      // Run on scroll
       window.addEventListener("scroll", backToTop);
-
-      // Scroll to top smoothly
       backToTopBtn.addEventListener("click", (e) => {
         e.preventDefault();
         window.scrollTo({
