@@ -35,7 +35,7 @@ const landingAssets = {
   ],
   js: [
     landing.js("jquery.min.js"),
-    landing.js("plugins.js"),
+    // landing.js("plugins.js"),
     landing.js("master.js"),
   ],
 };

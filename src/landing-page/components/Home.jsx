@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-scroll";
+import $ from "jquery";
 
 function Home({ imagePath }) {
   const slides = [
@@ -44,13 +45,16 @@ function Home({ imagePath }) {
   ];
 
   useEffect(() => {
-    $(".slider-bg").flexslider({
-      mode: "fade",
-      animation: "fade",
-      slideshow: true,
-      auto: true,
-      controlNav: true,
-      keyboard: true,
+    // Load flexslider plugin only once
+    import("../custom-js/flexslider-plugin.js").then(() => {
+      $(".slider-bg").flexslider({
+        animation: "fade",
+        slideshow: true,
+        controlNav: true,
+        directionNav: true,
+        keyboard: true,
+        start: () => console.log("Flexslider initialized ✅"),
+      });
     });
   }, []);
 

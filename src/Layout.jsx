@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { loadCssFiles, loadJsFiles } from "./utilities/helpers";
 import { config } from "./utilities/config";
+import LandingLayout from "./landing-page/LandingLayout";
 
 function Layout() {
   const location = useLocation();
@@ -19,7 +20,6 @@ function Layout() {
   }
 
   useEffect(() => {
-    console.log("test use strict on live")
     requestAnimationFrame(() => {
       const title = document.createElement("title");
       title.dataset.dynamic = "true";
@@ -30,7 +30,17 @@ function Layout() {
     });
   }, []);
 
-  return <Outlet />;
+  return (
+    <>
+      {firstPart === "/admin" ? (
+        <Outlet />
+      ) : (
+        <LandingLayout>
+          <Outlet />
+        </LandingLayout>
+      )}
+    </>
+  );
 }
 
 export default Layout;

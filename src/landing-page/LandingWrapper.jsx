@@ -11,15 +11,7 @@ import Footer from "./components/Footer";
 function LandingWrapper({ imagePath }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || window.pageYOffset;
@@ -39,19 +31,9 @@ function LandingWrapper({ imagePath }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
-  if (isLoading) {
-    return (
-      <div id="loader-overlay">
-        <div className="loader-wrapper">
-          <div className="arcon-pulse" />
-        </div>
-      </div>
-    );
-  }
 
   return (
-    <div className="wrapper">
+    <>
       <Navbar
         imagePath={imagePath}
         isScrolled={isScrolled}
@@ -65,7 +47,7 @@ function LandingWrapper({ imagePath }) {
       {/* <Pricing /> */}
       <ContactUs />
       <Footer imagePath={imagePath} isScrolled={isScrolled} />
-    </div>
+    </>
   );
 }
 

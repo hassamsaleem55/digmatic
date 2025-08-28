@@ -10,7 +10,7 @@ import Services from "./admin-panel/pages/Services";
 import Portfolio from "./admin-panel/pages/Portfolio";
 import Settings from "./admin-panel/pages/Settings";
 import Account from "./admin-panel/pages/Account";
-import NotFound from "./admin-panel/pages/NotFound";
+import AdminNotFound from "./admin-panel/AdminNotFound";
 
 const landingImageBasePath = config.basePaths.landingAssetsBasePaths.images;
 const adminRoutes = [
@@ -20,7 +20,7 @@ const adminRoutes = [
   { path: "portfolio", element: <Portfolio /> },
   { path: "settings", element: <Settings /> },
   { path: "account", element: <Account /> },
-  { path: "*", element: <NotFound /> },
+  { path: "*", element: <AdminNotFound /> },
 ];
 
 const router = createBrowserRouter([

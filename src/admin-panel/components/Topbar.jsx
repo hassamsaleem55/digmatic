@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-function Topbar() {
-  const navItems = [
-    { title: "My Account", path: "account", icon: "ri-account-circle-line" },
-    { title: "Settings", path: "settings", icon: "ri-settings-2-line" },
-  ];
+function Topbar({ navItems }) {
+  const [pageTitle, setPageTitle] = useState();
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  useEffect(() => {
+    const obj = navItems.sideBar.find((item) => item["path"] === pathname) || null;
+    setPageTitle(obj && obj.title);
+  }, []);
 
   return (
     <header className="app-topbar topbar-active" id="header">
@@ -13,7 +18,7 @@ function Topbar() {
           {/* Topbar Page Title */}
           <div className="topbar-item d-none d-md-flex px-2">
             <div>
-              <h4 className="page-title fs-20 fw-semibold mb-0">Dashboard</h4>
+              <h4 className="page-title fs-20 fw-semibold mb-0">{pageTitle}</h4>
             </div>
           </div>
         </div>
@@ -35,7 +40,7 @@ function Topbar() {
                 <i className="ri-arrow-down-s-line d-none d-lg-block align-middle ms-1" />
               </a>
               <div className="dropdown-menu dropdown-menu-end">
-                {navItems.map((value, index) => {
+                {navItems.topBar.map((value, index) => {
                   return (
                     <Link
                       key={index}

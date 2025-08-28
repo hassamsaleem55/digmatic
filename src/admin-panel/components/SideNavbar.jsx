@@ -1,20 +1,20 @@
 import { Link, useLocation } from "react-router-dom";
 
-function SideNavbar() {
+function SideNavbar({ navItems }) {
   const location = useLocation();
   const pathname = location.pathname;
 
-  const navItems = [
-    { title: "Home", icon: "ri-home-8-line", path: "/admin" },
-    { title: "About", icon: "ri-information-line", path: "/admin/about" },
-    { title: "Services", icon: "ri-function-line", path: "/admin/services" },
-    {
-      title: "Portfolio",
-      icon: "ri-book-shelf-line",
-      path: "/admin/portfolio",
-    },
-    { title: "Settings", icon: "ri-settings-2-line", path: "/admin/settings" },
-  ];
+  // const navItems = [
+  //   { title: "Home", icon: "ri-home-8-line", path: "/admin" },
+  //   { title: "About", icon: "ri-information-line", path: "/admin/about" },
+  //   { title: "Services", icon: "ri-function-line", path: "/admin/services" },
+  //   {
+  //     title: "Portfolio",
+  //     icon: "ri-book-shelf-line",
+  //     path: "/admin/portfolio",
+  //   },
+  //   { title: "Settings", icon: "ri-settings-2-line", path: "/admin/settings" },
+  // ];
 
   return (
     <div className="sidenav-menu">
