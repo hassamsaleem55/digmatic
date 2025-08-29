@@ -16,9 +16,9 @@ const landingAssetsBasePaths = {
 };
 
 const adminAssetsBasePaths = {
-  css: "assets/admin/css",
-  js: "assets/admin/js",
-  images: "assets/admin/images",
+  css: "../assets/admin/css",
+  js: "../assets/admin/js",
+  images: "../assets/admin/images",
   fonts: "assets/admin/fonts",
   vendor: "assets/admin/vendor",
 };
@@ -56,7 +56,7 @@ export const config = {
       ],
       js: [
         admin.js("config.js"),
-        // admin.js("vendor.min.js"),
+        admin.js("vendor.min.js"),
         // admin.js("app.js"),
         // admin.vendor("apexcharts/apexcharts.min.js"),
         // admin.js("pages/dashboard.js"),
