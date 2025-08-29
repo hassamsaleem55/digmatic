@@ -16,9 +16,9 @@ const landingAssetsBasePaths = {
 };
 
 const adminAssetsBasePaths = {
-  css: "../assets/admin/css",
-  js: "../assets/admin/js",
-  images: "../assets/admin/images",
+  css: "assets/admin/css",
+  js: "assets/admin/js",
+  images: "assets/admin/images",
   fonts: "assets/admin/fonts",
   vendor: "assets/admin/vendor",
 };
@@ -33,10 +33,7 @@ const landingAssets = {
     { link: landing.css("master.css"), rel: "stylesheet" },
     { link: landing.css("responsive.css"), rel: "stylesheet" },
   ],
-  js: [
-    landing.js("jquery.min.js"),
-    landing.js("master.js"),
-  ],
+  js: [landing.js("jquery.min.js"), landing.js("master.js")],
 };
 
 // Config
