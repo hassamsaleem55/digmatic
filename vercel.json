@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "frontend": {
+      "rootDirectory": "frontend"
+    },
+    "api": {
+      "rootDirectory": "api"
+    }
+  }
+}
