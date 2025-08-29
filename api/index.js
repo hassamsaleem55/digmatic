@@ -1,15 +1,3 @@
-// const express = require("express");
-// const app = express();
-// const port = 3000;
-
-// app.get("/", (req, res) => {
-//   res.send("Ki haal chaal?");
-// });
-
-// app.listen(port, () => {
-//   console.log("server started");
-// });
-
 // api/index.js
 const express = require("express");
 const serverless = require("serverless-http");
@@ -28,12 +16,14 @@ app.get("/api/users", (req, res) => {
   ]);
 });
 
-// Export for Vercel (serverless function)
+// Export handler for Vercel
 module.exports = app;
 module.exports.handler = serverless(app);
 
-// Run locally only
+// Only run locally with `node api/index.js`
 if (process.env.NODE_ENV !== "production") {
-  const PORT = 3000;
-  app.listen(PORT, () => console.log(`Local backend running at http://localhost:${PORT}/api`));
+  const PORT = 5000;
+  app.listen(PORT, () => {
+    console.log(`Local backend running at http://localhost:${PORT}/api`);
+  });
 }
