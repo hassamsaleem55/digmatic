@@ -9,18 +9,19 @@ const createAssetPaths = (base) => ({
 
 // Base asset paths
 const landingAssetsBasePaths = {
-  css: "assets/landing/css",
-  js: "assets/landing/js",
-  images: "assets/landing/images",
-  fonts: "assets/landing/fonts",
+  css: "/assets/landing/css",
+  js: "/assets/landing/js",
+  images: "/assets/landing/images",
+  fonts: "/assets/landing/fonts",
 };
 
 const adminAssetsBasePaths = {
-  css: "assets/admin/css",
-  js: "assets/admin/js",
-  images: "assets/admin/images",
-  fonts: "assets/admin/fonts",
-  vendor: "assets/admin/vendor",
+  css: "/assets/admin/css",
+  js: "/assets/admin/js",
+  images: "/assets/admin/images",
+  fonts: "/assets/admin/fonts",
+  vendor: "/assets/admin/vendor",
+
 };
 
 // Path builders
