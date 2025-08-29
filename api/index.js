@@ -4,7 +4,7 @@ const serverless = require("serverless-http");
 
 const app = express();
 
-// Example routes
+// Routes
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from backend!" });
 });
@@ -16,13 +16,12 @@ app.get("/api/users", (req, res) => {
   ]);
 });
 
-// Export handler for Vercel
-module.exports = app;
-module.exports.handler = serverless(app);
+// Export for Vercel
+module.exports = serverless(app);
 
-// Only run locally with `node api/index.js`
-if (process.env.NODE_ENV !== "production") {
-  const PORT = 5000;
+// Run locally with `node api/index.js`
+if (require.main === module) {
+  const PORT = 3000;
   app.listen(PORT, () => {
     console.log(`Local backend running at http://localhost:${PORT}/api`);
   });
