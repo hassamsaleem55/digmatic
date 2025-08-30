@@ -1,18 +1,25 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
-dotenv.config();
+let isConnected = false;
 
 const connectDB = async () => {
+  if (isConnected) {
+    console.log("Using existing MongoDB connection");
+    return;
+  }
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      dbName: process.env.MONGODB_DB || undefined, // optional
       useNewUrlParser: true,
-      useUnifiedTopology: true, // recommended
+      useUnifiedTopology: true,
     });
-    console.log("✅ MongoDB Connected");
+
+    isConnected = conn.connections[0].readyState === 1;
+    console.log("MongoDB Connected:", conn.connection.host);
   } catch (error) {
-    console.error("❌ MongoDB connection error:", error.message);
-    process.exit(1);
+    console.error("MongoDB connection error:", error.message);
+    throw new Error("MongoDB connection failed");
   }
 };
 
