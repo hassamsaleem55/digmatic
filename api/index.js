@@ -18,7 +18,7 @@ app.use(
   })
 );
 
-connectDB();
+await connectDB();
 
 app.use(bannerRoutes);
 
