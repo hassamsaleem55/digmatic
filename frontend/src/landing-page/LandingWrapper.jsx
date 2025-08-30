@@ -39,7 +39,7 @@ function LandingWrapper({ imagePath }) {
         isScrolled={isScrolled}
         activeSection={activeSection}
       />
-      <Home imagePath={imagePath} />
+      <Home />
       <About imagePath={imagePath} />
       <Services />
       <Team imagePath={imagePath} />

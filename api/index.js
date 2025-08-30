@@ -1,20 +1,27 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./db.js";
+import bannerRoutes from "./routes/banner.js";
+
+dotenv.config();
+const PORT = process.env.PORT || 3000;
+
 const app = express();
-const PORT = 3000;
+app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from backend!" });
-});
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
-app.get("/users", (req, res) => {
-  res.json([
-    { id: 1, name: "Hassam" },
-    { id: 2, name: "Saleem" },
-  ]);
-});
+connectDB();
+
+app.use(bannerRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-module.exports = app;
