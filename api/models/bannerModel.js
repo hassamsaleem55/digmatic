@@ -1,4 +1,6 @@
-const { Schema, model } = require("mongoose");
+import mongoose from "mongoose";
+
+const { Schema, model } = mongoose;
 
 const BannerSchema = new Schema({
   img: {
@@ -26,4 +28,4 @@ const BannerSchema = new Schema({
 });
 
 const BannerModel = model("Banner", BannerSchema);
-module.exports = BannerModel;
+export default BannerModel;
