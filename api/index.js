@@ -21,12 +21,15 @@ app.use(
 await connectDB();
 
 app.use(bannerRoutes);
+app.get("/", (_req, res) =>
+  res.json({ success: true, message: "Welcome to backend" })
+);
 
-export const handler = serverless(app);
+export default serverless(app);
 
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 3000;
+if (process.env.NODE_ENV === "development") {
+  const PORT = process.env.PORT;
   app.listen(PORT, () => {
-    console.log(`Server running locally on port ${PORT}`);
+    console.log(`Local server running on http://localhost:${PORT}`);
   });
 }

@@ -3,23 +3,20 @@ import mongoose from "mongoose";
 let isConnected = false;
 
 const connectDB = async () => {
-  if (isConnected) {
-    console.log("Using existing MongoDB connection");
-    return;
-  }
+  if (isConnected) return;
+
+  const uri = process.env.MONGODB_URI;
+  if (!uri) throw new Error("Missing MONGODB_URI");
 
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: process.env.MONGODB_DB || undefined, // optional
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    const conn = await mongoose.connect(uri, {
+      dbName: process.env.MONGODB_DB,
     });
-
     isConnected = conn.connections[0].readyState === 1;
     console.log("MongoDB Connected:", conn.connection.host);
-  } catch (error) {
-    console.error("MongoDB connection error:", error.message);
-    throw new Error("MongoDB connection failed");
+  } catch (err) {
+    console.error("MongoDB connection error:", err.message);
+    throw err;
   }
 };
 
