@@ -35,10 +35,33 @@
 // }
 
 import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import connectDB from "./db.js";
+import bannerRoutes from "./routes/banner.js";
+
+dotenv.config();
+
 const app = express();
+app.use(express.json());
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
+connectDB();
+
+// app.get("/", (req, res) => res.send("Express on Vercel"));
+
+app.get("/", (req, res) =>
+  res.json({ success: true, message: "Welcome to backend" })
+);
+
+app.use(bannerRoutes);
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
 export default app;
